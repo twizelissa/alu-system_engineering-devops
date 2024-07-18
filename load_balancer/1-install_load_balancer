@@ -10,14 +10,14 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend oreste-frontend
+frontend elissa-frontend
         bind *:80
         mode http
-        default_backend oreste-backend
-backend oreste-backend
+        default_backend elissa-backend
+backend elissa-backend
         balance roundrobin
-        server 6238-web-01 54.196.216.8:80 check
-        server 6238-web-02 98.80.15.59:80 check
+        server 6119-web-01 18.212.244.16:80 check
+        server 6119-web-02 18.212.250.251:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
